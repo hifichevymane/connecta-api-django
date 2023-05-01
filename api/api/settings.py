@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'phonenumber_field',
     # Created apps
     'business_cards.apps.BusinessCardsConfig',
 ]
