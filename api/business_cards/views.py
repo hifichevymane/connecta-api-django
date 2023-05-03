@@ -7,7 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 
 # Get all business cards and create one(GET, POST)
 class BusinessCardsListCreateView(generics.ListCreateAPIView):
-    
     # Which query set will execute in Django ORM
     queryset =  BusinessCard.objects.all()
     serializer_class = BusinessCardsSerializer
@@ -16,7 +15,6 @@ class BusinessCardsListCreateView(generics.ListCreateAPIView):
 
 # Retrieve business card, update and delete it(POST, PUT, PATCH, DELETE)
 class BusinessCardsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-
     queryset = BusinessCard.objects.all()
     serializer_class = BusinessCardsSerializer
     permission_classes = (IsAuthenticated, )
