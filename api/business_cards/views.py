@@ -1,6 +1,7 @@
 from rest_framework import generics
 from .models import BusinessCard
 from .serializers import BusinessCardsSerializer
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -10,6 +11,7 @@ class BusinessCardsListCreateView(generics.ListCreateAPIView):
     # Which query set will execute in Django ORM
     queryset =  BusinessCard.objects.all()
     serializer_class = BusinessCardsSerializer
+    permission_classes = (IsAuthenticated, )
 
 
 # Retrieve business card, update and delete it(POST, PUT, PATCH, DELETE)
@@ -17,3 +19,4 @@ class BusinessCardsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVi
 
     queryset = BusinessCard.objects.all()
     serializer_class = BusinessCardsSerializer
+    permission_classes = (IsAuthenticated, )
