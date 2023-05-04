@@ -1,6 +1,7 @@
 from django.db import models
 # Import lib for phone number field
 from phonenumber_field.modelfields import PhoneNumberField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -26,6 +27,8 @@ class BusinessCard(models.Model):
     telegram = models.CharField(max_length=128, blank=True)
     address = models.CharField(max_length=128)
     website = models.CharField(max_length=128, blank=True)
+    # Foreign key to User model
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # How it will be printed in Shell or Django admin
     def __str__(self):

@@ -12,6 +12,10 @@ class BusinessCardsListCreateView(generics.ListCreateAPIView):
     serializer_class = BusinessCardsSerializer
     permission_classes = (IsAuthenticated, )
 
+    # Get only user's created business cards
+    def get_queryset(self):
+        return self.queryset.filter(owner=self.request.user)
+
 
 # Retrieve business card, update and delete it(POST, PUT, PATCH, DELETE)
 class BusinessCardsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
